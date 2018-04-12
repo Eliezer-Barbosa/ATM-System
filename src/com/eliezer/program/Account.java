@@ -3,6 +3,7 @@ package com.eliezer.program;
 import java.io.IOException;
 import java.io.Serializable;
 import java.text.NumberFormat;
+import java.util.List;
 import java.util.Locale.Category;
 
 import javax.swing.ImageIcon;
@@ -46,7 +47,8 @@ public class Account implements Serializable {
 		
 		accountNumberReceiver = Integer.parseInt(input);
 		
-		Account[] accountsRestored = (Account[]) ObjectRestorer.restore("accounts.bin");
+		//Account[] accountsRestored = (Account[]) ObjectRestorer.restore("accounts.bin");
+		List<Account> accountsRestored = (List<Account>) ObjectRestorer.restore("accounts.bin");
 		
 		for (Account currentAccount : accountsRestored ) {
 			
@@ -290,7 +292,7 @@ public class Account implements Serializable {
 				this.getClient().getFirstName().toLowerCase()+".bin");
 
 		JOptionPane.showMessageDialog(null, con.toString(), con.getClient().getFirstName()
-				 + "'s Account details", JOptionPane.PLAIN_MESSAGE);
+				 + "'s Account details", JOptionPane.PLAIN_MESSAGE, new ImageIcon("images/dollar.png"));
 
 	}
 
